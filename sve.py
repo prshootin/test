@@ -278,3 +278,13 @@ def top_sort(g):
     print(stack[::-1])
 
 
+def floyd_warshall(G):
+    udaljenost = list(map(lambda i: list(map(lambda j: j, i)), G))
+
+
+    for k in range(nV):
+        for i in range(nV):
+            for j in range(nV):
+                udaljenost[i][j] = min(udaljenost[i][j], udaljenost[i][k] + udaljenost[k][j])
+
+
